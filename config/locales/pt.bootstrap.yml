@@ -21,3 +21,7 @@ pt:
       save: "Salvar %{model}"
       new: "Novo %{model}"
       delete: "Deletar %{model}"
+    messages:
+      save: "%{model} salvo(a) com sucesso."
+      update: "%{model} atualizado(a) com sucesso."
+      delete: "%{model} excluido(a) com sucesso."  
