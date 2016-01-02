@@ -28,7 +28,7 @@ class ProfessionsController < ApplicationController
 
     respond_to do |format|
       if @profession.save
-        format.html { redirect_to @profession, notice: 'Profession was successfully created.' }
+        format.html { redirect_to @profession, notice: t('helpers.messages.save' , model:t('activerecord.models.profession.one')) }
         format.json { render :show, status: :created, location: @profession }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ProfessionsController < ApplicationController
   def update
     respond_to do |format|
       if @profession.update(profession_params)
-        format.html { redirect_to @profession, notice: 'Profession was successfully updated.' }
+        format.html { redirect_to @profession, notice: t('helpers.messages.update' , model:t('activerecord.models.profession.one')) }
         format.json { render :show, status: :ok, location: @profession }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class ProfessionsController < ApplicationController
   def destroy
     @profession.destroy
     respond_to do |format|
-      format.html { redirect_to professions_url, notice: 'Profession was successfully destroyed.' }
+      format.html { redirect_to professions_url, notice: t('helpers.messages.delete' , model:t('activerecord.models.profession.one')) }
       format.json { head :no_content }
     end
   end
