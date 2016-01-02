@@ -1,0 +1,18 @@
+---
+pt:
+  professions:
+    index:
+      title: 'Lista de Profissões'
+    new:
+      title: 'Nova Profissão'
+  activerecord:
+    models:
+      profession:
+        one: Profissão
+        other: Profissões
+    attributes:
+      profession:
+        name: Nome
+        description: Descrição
+        active: Ativo
+        created_at: Criado em      
