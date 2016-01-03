@@ -1,0 +1,15 @@
+<%%= bootstrap_form_for @<%= resource_name %> , label_errors: false, inline_errors: false do |f| %>
+
+  <%%= f.alert_message t('errors.template.body') %>
+
+<%- columns.each do |column| -%>
+      <%%= f.<%= column.field_type %> :<%= column.name %> %>
+  <%- end -%>
+
+  <%%= f.form_group do %>
+      <%%= f.submit nil, :class => 'btn btn-primary' %>
+      <%%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                <%= controller_routing_path %>_path, :class => 'btn btn-default' %>
+   <%% end %>
+
+<%% end %>
