@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/knapo/jquery-inputmask-rails.git
+  revision: 1239a1cd0f2296f0c4369db09e141fd91840a4d1
+  specs:
+    jquery-inputmask-rails (0.3.3)
+      railties (>= 3.1, <= 5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -56,6 +63,9 @@ GEM
     execjs (2.6.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    httparty (0.13.7)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     jbuilder (2.4.0)
       activesupport (>= 3.0.0, < 5.1)
@@ -80,6 +90,7 @@ GEM
     mini_portile2 (2.0.0)
     minitest (5.8.3)
     multi_json (1.11.2)
+    multi_xml (0.5.5)
     nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
     rack (1.6.4)
@@ -159,8 +170,12 @@ DEPENDENCIES
   bootstrap_form
   byebug
   coffee-rails (~> 4.1.0)
+  httparty
   jbuilder (~> 2.0)
+  jquery-inputmask-rails!
   jquery-rails
+  json
+  nokogiri
   rails (= 4.2.5)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

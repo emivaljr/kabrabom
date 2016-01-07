@@ -13,5 +13,11 @@
 #= require jquery
 #= require jquery_ujs
 #= require twitter/bootstrap
-//= require turbolinks
+//= require inputmask
+//= require jquery.inputmask
+//= require inputmask.extensions
+//= require inputmask.date.extensions
+//= require inputmask.phone.extensions
+//= require inputmask.numeric.extensions
+//= require inputmask.regex.extensions
 #= require_tree .

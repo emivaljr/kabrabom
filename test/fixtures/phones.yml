@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ddd: 1
+  phone: 1
+  active: false
+
+two:
+  ddd: 1
+  phone: 1
+  active: false

@@ -5,14 +5,42 @@ pt:
       title: 'Lista de Profissões'
     new:
       title: 'Nova Profissão'
+  users:
+    index:
+      title: ' Lista de Usuários'
+    new:
+      title: Novo Usuário  
   activerecord:
     models:
       profession:
         one: Profissão
         other: Profissões
+      user:
+        one: Usuário
+        other: Usuários
     attributes:
       profession:
         name: Nome
         description: Descrição
         active: Ativo
-        created_at: Criado em      
+        created_at: Criado em
+      user:
+        login: Login
+        email: E-mail
+        email_confirmation: Confirme seu e-mail
+        name: Nome Completo
+        password: Senha
+        password_confirmation: Confime a senha  
+        cpf: Cpf
+        address: Endereço
+        phone: Telefone
+      address:
+        main: Principal
+        num: Número
+        complement: Complemento
+        district: Bairro
+        city: Cidade
+        state: Estado
+      phone:
+        ddd: Ddd
+        phone: Telefone        

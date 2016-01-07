@@ -11,7 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151231192223) do
+ActiveRecord::Schema.define(version: 20160106224908) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.text     "main"
+    t.string   "complement"
+    t.integer  "num"
+    t.integer  "cep"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "user_id"
+    t.boolean  "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "district"
+  end
+
+  create_table "phones", force: :cascade do |t|
+    t.integer  "ddd"
+    t.integer  "phone"
+    t.integer  "user_id"
+    t.boolean  "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "professions", force: :cascade do |t|
     t.string   "name"
@@ -19,6 +42,23 @@ ActiveRecord::Schema.define(version: 20151231192223) do
     t.boolean  "active"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "states", force: :cascade do |t|
+    t.string   "sign"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "login"
+    t.string   "email"
+    t.string   "name"
+    t.string   "password"
+    t.integer  "cpf",        limit: 14
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
 end

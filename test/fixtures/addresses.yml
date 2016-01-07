@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  main: MyText
+  complement: MyString
+  num: 1
+  cep: 1
+  city: MyString
+  state: MyString
+  active: false
+
+two:
+  main: MyText
+  complement: MyString
+  num: 1
+  cep: 1
+  city: MyString
+  state: MyString
+  active: false

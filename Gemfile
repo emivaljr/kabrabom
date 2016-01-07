@@ -36,6 +36,15 @@ gem "twitter-bootstrap-rails"
 
 gem 'bootstrap_form'
 
+gem 'httparty'
+
+gem 'nokogiri'
+
+gem 'json'
+
+gem 'jquery-inputmask-rails', github: 'knapo/jquery-inputmask-rails'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
