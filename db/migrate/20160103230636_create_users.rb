@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email
       t.string :name
       t.string :password
-      t.integer :cpf , limit:'14'
+      t.string :cpf
 
       t.timestamps null: false
     end

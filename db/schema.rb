@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160106224908) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "addresses", force: :cascade do |t|
     t.text     "main"
     t.string   "complement"
@@ -56,9 +59,9 @@ ActiveRecord::Schema.define(version: 20160106224908) do
     t.string   "email"
     t.string   "name"
     t.string   "password"
-    t.integer  "cpf",        limit: 14
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.string   "cpf"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
