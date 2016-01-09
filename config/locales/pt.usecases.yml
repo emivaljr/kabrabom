@@ -1,15 +1,29 @@
 ---
 pt:
+  errors:
+      models:
+        addresses:
+          attributes:
+            num:
+              blank: "idsfdsfsdfsdfdsf"
   professions:
     index:
       title: 'Lista de Profissões'
+    edit:
+      title:  'Editar Profissão'
     new:
       title: 'Nova Profissão'
   users:
     index:
-      title: ' Lista de Usuários'
+      title: 'Lista de Usuários'
+    edit:
+      title:  'Editar Usuário'
+      titleAddress: 'Endereço'
     new:
-      title: Novo Usuário  
+      title:  'Novo Usuário'
+      titleAddress: 'Endereço'
+    show:
+      titleAddress: 'Endereço'
   activerecord:
     models:
       profession:
@@ -34,7 +48,16 @@ pt:
         cpf: Cpf
         address: Endereço
         phone: Telefone
+      addresses:
+        cep: Cep
+        main: Principal
+        num: Número
+        complement: Complemento
+        district: Bairro
+        city: Cidade
+        state: Estado
       address:
+        cep: Cep
         main: Principal
         num: Número
         complement: Complemento
@@ -43,4 +66,4 @@ pt:
         state: Estado
       phone:
         ddd: Ddd
-        phone: Telefone        
+        phone: Telefone

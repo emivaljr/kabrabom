@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+	 validates_presence_of :name,:login,:cpf
 	 has_many :addresses, :dependent => :destroy
 	 has_many :phones, :dependent => :destroy
 	 accepts_nested_attributes_for :addresses  , :allow_destroy => true

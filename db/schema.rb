@@ -31,8 +31,7 @@ ActiveRecord::Schema.define(version: 20160106224908) do
   end
 
   create_table "phones", force: :cascade do |t|
-    t.integer  "ddd"
-    t.integer  "phone"
+    t.string   "phone"
     t.integer  "user_id"
     t.boolean  "active"
     t.datetime "created_at", null: false

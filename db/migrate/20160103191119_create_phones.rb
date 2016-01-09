@@ -1,8 +1,7 @@
 class CreatePhones < ActiveRecord::Migration
   def change
     create_table :phones do |t|
-      t.integer :ddd
-      t.integer :phone
+      t.string :phone
       t.integer :user_id
       t.boolean :active
 
