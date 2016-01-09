@@ -16,19 +16,21 @@
           <%= f.text_field :email_confirmation %>
         </div>
       </div>
+     <%= f.fields_for :logins do |l| %>
       <div class='row'>
         <div class='col-sm-3'>
-          <%= f.text_field :login %>
+          <%= l.text_field :username %>
         </div> 
       </div>    
        <div class='row'>
         <div class='col-sm-4'>
-          <%= f.password_field :password %>
+          <%= l.password_field :password %>
         </div>
         <div class='col-sm-4'>
-          <%= f.password_field :password_confirmation %>
+          <%= l.password_field :password_confirmation %>
         </div>
       </div>
+     <% end %>
        <div class='row'>
         <div class='col-sm-4'>
             <%= f.text_field :cpf , data: { inputmask: "'mask': '999.999.999-99'" } %>

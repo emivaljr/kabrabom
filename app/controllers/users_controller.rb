@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     1.times do
     address = @user.addresses.build
     phones = @user.phones.build
+    logins = @user.logins.build
     end
   end
 
@@ -57,6 +58,6 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:id, :login, :email, :name, :password, :cpf,:email_confirmation,:password_confirmation, addresses_attributes: [:id,:main,:cep,:complement,:num,:district,:city,:state],phones_attributes: [:id,:ddd,:phone])
+      params.require(:user).permit(:id, :email, :name, :cpf,:email_confirmation,:password_confirmation, addresses_attributes: [:id,:main,:cep,:complement,:num,:district,:city,:state],phones_attributes: [:id,:ddd,:phone],logins_attributes:[:username,:password])
     end
 end
