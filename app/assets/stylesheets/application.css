@@ -13,4 +13,9 @@
  *= require_tree .
  *= require_self
  *= require rails_bootstrap_forms
+ *= require style
+ *= require owl.carousel
+ *= require owl.theme
+ *= require longshadow
+ *= require font-awesome
  */

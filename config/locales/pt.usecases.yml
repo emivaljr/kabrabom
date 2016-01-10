@@ -6,6 +6,10 @@ pt:
           attributes:
             num:
               blank: "idsfdsfsdfsdfdsf"
+  layouts:
+    application:
+        freeAds: 'Anuncie Grátis'
+        signUp: 'Cadastre-se'
   professions:
     index:
       title: 'Lista de Profissões'
@@ -24,6 +28,18 @@ pt:
       titleAddress: 'Endereço'
     show:
       titleAddress: 'Endereço'
+  welcome:
+    index:
+      mainTitle: 'ENCONTRE AQUI SEU KABRA BOM!'
+      subTitle: 'Encontre o profissional para a sua necessidade em minutos.'
+      searchCityCep: 'Cidade/Cep...'
+      searchLookingFor: 'Estou procurando um...'
+      categoryTitle: 'navegue em nossas categorias:'
+      findButton: 'Buscar'
+      topTitle: 'Destaques'
+      popularCities: 'Cidades Populares'
+      popularProfissions: 'Profissões Populares'
+      mostSearches: 'Mais Buscados'
   activerecord:
     models:
       profession:
