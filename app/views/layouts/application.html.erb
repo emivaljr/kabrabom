@@ -33,10 +33,26 @@
     <script src="/plugins/jquery.fs.selecter/jquery.fs.selecter.js"></script>
     <script src="/plugins/jquery.fs.scroller/jquery.fs.scroller.js"></script>
 
+    <!-- Bootstrap core CSS -->
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/style.css" rel="stylesheet">
+
+    <!-- styles needed for carousel slider -->
+    <link href="/css/owl.carousel.css" rel="stylesheet">
+    <link href="/css/owl.theme.css" rel="stylesheet">
+
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js" type="text/javascript"></script>
     <![endif]-->
+    <script>
+      paceOptions = {
+        elements: true
+      };
+    </script>
+    <script src="/js/pace.min.js"></script>
   </head>
   <body>
   <div id="wrapper">
@@ -50,8 +66,8 @@
               <span class="logo-icon"><i class="icon icon-search-1 ln-shadow-logo shape-0"></i> </span> KABRA<span>BOM </span> </a> </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="login.html">Login</a></li>
-              <li><a href="signup.html"><%= t('.signUp')%></a></li>
+              <li><a href="/users/sign_in"><%= t('.login')%></a></li>
+              <li><a href="/users/sign_up"><%= t('.signUp')%></a></li>
               <li class="postadd"><a class="btn btn-block   btn-border btn-post btn-danger" href="post-ads.html"><%= t('.freeAds')%></a></li>
             </ul>
           </div>
@@ -80,6 +96,23 @@
     </div>
     <!-- /.footer -->
   </div>
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"> </script><script src="/bootstrap/js/bootstrap.min.js"></script>
+
+  <!-- include carousel slider plugin  -->
+  <script src="/js/owl.carousel.min.js"></script>
+
+  <!-- include equal height plugin  -->
+  <script src="/js/jquery.matchHeight-min.js"></script>
+
+  <!-- include jquery list shorting plugin plugin  -->
+  <script src="/js/hideMaxListItem.js"></script>
+
+  <!-- include jquery.fs plugin for custom scroller and selecter  -->
+  <script src="/plugins/jquery.fs.scroller/jquery.fs.scroller.js"></script>
+  <script src="/plugins/jquery.fs.selecter/jquery.fs.selecter.js"></script>
+  <!-- include custom script for site  -->
+  <script src="/js/script.js"></script>
   <!-- /.wrapper -->
   </body>
 </html>

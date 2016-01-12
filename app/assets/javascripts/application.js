@@ -20,8 +20,4 @@
 //= require inputmask.phone.extensions
 //= require inputmask.numeric.extensions
 //= require inputmask.regex.extensions
-//= require owl.carousel.min
-//= require hideMaxListItem-min
-//= require jquery.matchHeight-min
-//= require script
 #= require_tree .

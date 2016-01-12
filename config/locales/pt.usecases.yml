@@ -1,15 +1,10 @@
 ---
 pt:
-  errors:
-      models:
-        addresses:
-          attributes:
-            num:
-              blank: "idsfdsfsdfsdfdsf"
   layouts:
     application:
         freeAds: 'Anuncie Grátis'
-        signUp: 'Cadastre-se'
+        login: 'Entrar'
+        signUp: 'Criar Conta'
   professions:
     index:
       title: 'Lista de Profissões'
@@ -40,6 +35,12 @@ pt:
       popularCities: 'Cidades Populares'
       popularProfissions: 'Profissões Populares'
       mostSearches: 'Mais Buscados'
+  registrations:
+    new:
+      male: Masculino
+      female: Feminino
+      notinformative: Não informar
+
   activerecord:
     models:
       profession:
@@ -63,7 +64,10 @@ pt:
         password_confirmation: Confime a senha  
         cpf: Cpf
         address: Endereço
-        phone: Telefone
+        phone_number: Telefone
+        first_name: Primeiro Nome
+        last_name: Sobrenome
+        gender: Gênero
       addresses:
         cep: Cep
         main: Principal

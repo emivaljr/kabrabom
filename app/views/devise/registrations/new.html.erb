@@ -1,0 +1,66 @@
+<div class="main-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 page-content">
+        <div class="inner-box category-content">
+          <h2 class="title-2"> <i class="icon-user-add"></i> Create your account, Its free </h2>
+          <div class="row">
+            <div class="col-sm-12">
+              <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), layout: :horizontal) do |f| %>
+                <fieldset>
+                  <%= f.text_field :first_name , control_col: "col-md-6", label_col:"col-md-4" , placeholder: t('activerecord.attributes.user.first_name') %>
+                  <%= f.text_field :last_name , control_col: "col-md-6", label_col:"col-md-4" , placeholder: t('activerecord.attributes.user.last_name') %>
+                  <%= f.text_field :phone_number , control_col: "col-md-6", label_col:"col-md-4" , placeholder: t('activerecord.attributes.user.phone_number') %>
+                  <%= f.form_group :gender, label: { text: t('activerecord.attributes.user.gender')}, label_col:"col-md-4" , control_col: "col-md-6"  do %>
+                      <%= f.radio_button :gender, 'M', label: t('registrations.new.male') %>
+                      <%= f.radio_button :gender, 'F', label: t('registrations.new.female') %>
+                      <%= f.radio_button :gender, 'N', label: t('registrations.new.notinformative') %>
+                  <% end %>
+                  <%= f.text_field :cpf , control_col: "col-md-6", label_col:"col-md-4" , placeholder: t('activerecord.attributes.user.cpf') %>
+                  <!-- Textarea -->
+                  <%= f.email_field :email , control_col: "col-md-6", label_col:"col-md-4" , placeholder: t('activerecord.attributes.user.email') %>
+                  <%= f.password_field :password , control_col: "col-md-6", label_col:"col-md-4" , placeholder: t('activerecord.attributes.user.password') %>
+                  <%= f.password_field :password_confirmation , control_col: "col-md-6", label_col:"col-md-4" , placeholder: t('activerecord.attributes.user.password_confirmation') %>
+                  <div class="form-group">
+                    <label  class="col-md-4 control-label"></label>
+                    <div class="col-md-8">
+                      <div class="termbox mb10">
+                        <label class="checkbox-inline" for="checkboxes-1">
+                          <%= f.check_box_without_bootstrap :term %>
+                          I have read and agree to the <a href="terms-conditions.html">Terms & Conditions</a> </label>
+                      </div>
+                      <div style="clear:both"></div>
+                      <%= f.submit t('.submit') , class: 'btn btn-primary' %> </div>
+                  </div>
+                </fieldset>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.page-content -->
+
+      <div class="col-md-4 reg-sidebar">
+        <div class="reg-sidebar-inner text-center">
+          <div class="promo-text-box"> <i class=" icon-picture fa fa-4x icon-color-1"></i>
+            <h3><strong>Post a Free Classified</strong></h3>
+            <p> Post your free online classified ads with us. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+          </div>
+          <div class="promo-text-box"> <i class=" icon-pencil-circled fa fa-4x icon-color-2"></i>
+            <h3><strong>Create and Manage Items</strong></h3>
+            <p> Nam sit amet dui vel orci venenatis ullamcorper eget in lacus.
+              Praesent tristique elit pharetra magna efficitur laoreet.</p>
+          </div>
+          <div class="promo-text-box"> <i class="  icon-heart-2 fa fa-4x icon-color-3"></i>
+            <h3><strong>Create your Favorite  ads list.</strong></h3>
+            <p> PostNullam quis orci ut ipsum mollis malesuada varius eget metus.
+              Nulla aliquet dui sed quam iaculis, ut finibus massa tincidunt.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</div>
+<!-- /.main-container -->
