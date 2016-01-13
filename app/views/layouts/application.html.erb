@@ -66,8 +66,13 @@
               <span class="logo-icon"><i class="icon icon-search-1 ln-shadow-logo shape-0"></i> </span> KABRA<span>BOM </span> </a> </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="/users/sign_in"><%= t('.login')%></a></li>
-              <li><a href="/users/sign_up"><%= t('.signUp')%></a></li>
+              <%- if user_signed_in? %>
+                  <li><a href="">Bem-vindo, <%=current_user.first_name%> <%=current_user.last_name%></a></li>
+                  <li><%=link_to('Sair', destroy_user_session_path, :method => 'delete')%> </li>
+              <% else %>
+                  <li><a href="/users/sign_in"><%= t('.login')%></a></li>
+                  <li><a href="/users/sign_up"><%= t('.signUp')%></a></li>
+              <% end -%>
               <li class="postadd"><a class="btn btn-block   btn-border btn-post btn-danger" href="post-ads.html"><%= t('.freeAds')%></a></li>
             </ul>
           </div>
@@ -87,10 +92,10 @@
     <div class="footer" id="footer">
       <div class="container">
         <ul class=" pull-left navbar-link footer-nav">
-          <li><a href="index.html"> Home </a> <a href="about-us.html"> About us </a> <a href="#"> Terms and Conditions </a> <a href="#"> Privacy Policy </a> <a href="contact.html"> Contact us </a> <a href="faq.html"> FAQ </a>
+          <li><a href="index.html"><%= t('.home')%> </a> <a href="about-us.html"><%= t('.aboutus')%> </a> <a href="#"> <%= t('.termCond')%> </a> <a href="#"> <%= t('.privacyPolicy')%> </a> <a href="contact.html"> <%= t('.contactUs')%> </a> <a href="faq.html"> <%= t('.faq')%> </a>
         </ul>
         <ul class=" pull-right navbar-link footer-nav">
-          <li> &copy; 2015 BootClassified </li>
+          <li> &copy; 2015 Kabrabom </li>
         </ul>
       </div>
     </div>

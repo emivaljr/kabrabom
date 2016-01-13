@@ -4,6 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates_presence_of :term
+  validates_presence_of :term,:cpf,:phone_number,:first_name,:last_name,:gender,:password_confirmation
   attr_accessor :term
 end

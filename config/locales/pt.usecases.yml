@@ -5,6 +5,12 @@ pt:
         freeAds: 'Anuncie Grátis'
         login: 'Entrar'
         signUp: 'Criar Conta'
+        home: 'Inicial'
+        aboutus: 'Quem Somos'
+        termCond: 'Termos e Condições'
+        privacyPolicy: 'Política de Privacidade'
+        contactUs: 'Contate-nos'
+        faq: 'Perguntas Frequentes'
   professions:
     index:
       title: 'Lista de Profissões'
@@ -40,7 +46,20 @@ pt:
       male: Masculino
       female: Feminino
       notinformative: Não informar
-
+      agreeconditions: Declaro que li e concordo com os Termos e Condições
+      createaccount: Crie aqui sua conta
+      freead_title: Faça aqui o seu anúncio grátis.
+      freead_description: É profissional autônomo? No Kabrabom você pode oferecer seus serviços de forma transparente e segura.
+      manage_itens_title: Crie e gerencie quantos anúncios quiser!
+      manage_itens_description: Veja de forma unificada todos os seus anúncios e comentários relacionados.
+      favorite_list_title: Marque como favorito os anúncios que mais gostou.
+      favorite_list_description: Caso você encontre um anuncio que goste e que deseja guardar não tem problema, marque-o como favorito e o veja no seu perfil.
+  passwords:
+    new:
+      button_mail: Envie instruções para reiniciar senha
+      back_login: Voltar para o Login
+      nota_user: Ainda não se registrou?
+      create_account: Criar Conta
   activerecord:
     models:
       profession:
