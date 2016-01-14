@@ -1,9 +1,11 @@
 <div class="main-container">
   <div class="container">
     <div class="row">
-      <%= bootstrap_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= bootstrap_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }, inline_errors: false) do |f| %>
       <div class="col-sm-5 login-box">
+
         <div class="panel panel-default">
+          <%= devise_error_messages! %>
           <div class="panel-intro text-center">
             <h2 class="logo-title">
               <!-- Original Logo will be placed here  -->
@@ -13,7 +15,7 @@
           <div class="panel-body">
               <div class="form-group">
                 <label for="sender-email" class="control-label"> <%= f.label :email %></label>
-                <div class="input-icon"> <i class="icon-user fa"></i>
+                <div class="input-icon"> <i class="icon-at fa"></i>
                   <%= f.email_field :email, autofocus: true, hide_label: true %>
                 </div>
               </div>

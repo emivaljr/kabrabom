@@ -1,22 +1,37 @@
-<h2>Change your password</h2>
+<div class="main-container">
+  <div class="container">
+    <div class="row">
+      <%= bootstrap_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }, inline_errors: false) do |f| %>
+          <div class="col-sm-5 login-box">
+            <div class="panel panel-default">
+              <%= devise_error_messages! %>
+              <%= f.hidden_field :reset_password_token %>
+              <div class="panel-intro text-center">
+                <h2 class="logo-title">
+                  <!-- Original Logo will be placed here  -->
+                  <span class="logo-icon"><i class="icon icon-search-1 ln-shadow-logo shape-0"></i> </span> KABRA<span>BOM </span> </h2>
+              </div>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
-
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
+              <div class="panel-body">
+                <div class="form-group">
+                  <label for="sender-email" class="control-label"> <%= f.label :password, t('passwords.edit.new_password') %></label>
+                  <div class="input-icon"> <i class="icon-lock fa"></i>
+                    <%= f.password_field :password, autofocus: true, autocomplete: "off" , hide_label: true %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="sender-email" class="control-label">  <%= f.label :password_confirmation,t('passwords.edit.confirm_password') %></label>
+                  <div class="input-icon"> <i class="icon-lock fa"></i>
+                    <%= f.password_field :password_confirmation, autocomplete: "off" , hide_label: true %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <%= f.submit t('passwords.edit.button_change') , class: 'btn btn-primary btn-lg btn-block' %>
+                </div>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

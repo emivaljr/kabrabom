@@ -2,10 +2,11 @@
   <div class="container">
     <div class="row">
       <%= bootstrap_flash %>
-      <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), layout: :horizontal) do |f| %>
+      <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), layout: :horizontal, inline_errors: false) do |f| %>
       <div class="col-md-8 page-content">
-        <div class="inner-box category-content">
 
+        <div class="inner-box category-content">
+          <%= devise_error_messages! %>
           <h2 class="title-2"> <i class="icon-user-add"></i> <%=t('registrations.new.createaccount')%> </h2>
           <div class="row">
             <div class="col-sm-12">
