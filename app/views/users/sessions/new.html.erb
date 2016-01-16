@@ -2,13 +2,18 @@
   <div class="container">
     <div class="row">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+
       <div class="col-sm-5 login-box">
+        <%= bootstrap_flash %>
         <div class="panel panel-default">
+
           <div class="panel-intro text-center">
             <h2 class="logo-title">
               <!-- Original Logo will be placed here  -->
               <span class="logo-icon"><i class="icon icon-search-1 ln-shadow-logo shape-0"></i> </span> KABRA<span>BOM </span> </h2>
           </div>
+
           <div class="panel-body">
 
                 <div class="form-group">

@@ -31,6 +31,16 @@ pt:
       titleAddress: 'Endereço'
     show:
       titleAddress: 'Endereço'
+    sessions:
+      new:
+        email: 'E-mail'
+        password: 'Senha'
+        submit: 'Enviar'
+        remember_me: 'Permanecer logado'
+        forgot_password: 'Esqueci a senha'
+        notauser: 'Não tem conta?'
+        signup: 'Criar'
+
   welcome:
     index:
       mainTitle: 'ENCONTRE AQUI SEU KABRA BOM!'
@@ -61,6 +71,12 @@ pt:
       lastlogin: 'O seu ultimo login foi em:'
       mydetails: 'Meus dados'
       submit: 'Salvar'
+      myclassified: 'Minhas informações'
+      personal_home: 'Meu Perfil'
+      my_adds: 'Meus anúncios'
+      terminate_account: 'Encerrar conta'
+      close_account: 'Fechar minha conta'
+      comfirm_delete_account: 'Confirma que deseja excluir sua conta? Essa ação não poderá ser desfeita.'
   passwords:
     new:
       button_mail: Envie instruções para reiniciar senha
@@ -98,6 +114,7 @@ pt:
         first_name: Primeiro Nome
         last_name: Sobrenome
         gender: Gênero
+        current_password: Senha Atual
       addresses:
         cep: Cep
         main: Principal

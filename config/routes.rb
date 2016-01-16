@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users
+  get 'message/index'
+
+  devise_for :users, controllers: { sessions: "users/sessions",confirmations: "users/confirmations", registrations: "users/registrations", passwords: "users/passwords"}
   get 'cep/search/:id' =>  'cep#search'
 
   resources :professions
+
+  devise_scope :user do
+    get "/users/cancel" => "users/registrations"
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,171 @@
+<div class="main-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3 page-sidebar">
+        <aside>
+          <div class="inner-box">
+            <div class="user-panel-sidebar">
+              <div class="collapse-box">
+                <h5 class="collapse-title no-border"> My Classified <a href="#MyClassified" data-toggle="collapse" class="pull-right"><i class="fa fa-angle-down"></i></a></h5>
+                <div class="panel-collapse collapse in" id="MyClassified">
+                  <ul class="acc-list">
+                    <li><a class="active" href="account-home.html"><i class="icon-home"></i> Personal Home </a></li>
+
+                  </ul>
+                </div>
+              </div>
+              <!-- /.collapse-box  -->
+              <div class="collapse-box">
+                <h5 class="collapse-title"> My Ads <a href="#MyAds" data-toggle="collapse" class="pull-right"><i class="fa fa-angle-down"></i></a></h5>
+                <div class="panel-collapse collapse in" id="MyAds">
+                  <ul class="acc-list">
+                    <li><a href="account-myads.html"><i class="icon-docs"></i> My ads <span class="badge">42</span> </a></li>
+                    <li><a href="account-favourite-ads.html"><i class="icon-heart"></i> Favourite ads <span class="badge">42</span> </a></li>
+                    <li><a href="account-saved-search.html"><i class="icon-star-circled"></i> Saved search <span class="badge">42</span> </a></li>
+                    <li><a href="account-archived-ads.html"><i class="icon-folder-close"></i> Archived ads <span class="badge">42</span></a></li>
+                    <li><a href="account-pending-approval-ads.html"><i class="icon-hourglass"></i> Pending approval <span class="badge">42</span></a></li>
+
+                  </ul>
+                </div>
+              </div>
+              <!-- /.collapse-box  -->
+
+              <div class="collapse-box">
+                <h5 class="collapse-title"> Terminate Account <a href="#TerminateAccount" data-toggle="collapse" class="pull-right"><i class="fa fa-angle-down"></i></a></h5>
+                <div class="panel-collapse collapse in" id="TerminateAccount">
+                  <ul class="acc-list">
+                    <li>
+                      <a href="account-close.html"><i class="icon-cancel-circled "></i> Close account </a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- /.collapse-box  -->
+            </div>
+          </div>
+          <!-- /.inner-box  -->
+
+        </aside>
+      </div>
+      <!--/.page-sidebar-->
+
+      <div class="col-sm-9 page-content">
+        <%= bootstrap_flash %>
+        <div class="inner-box">
+          <div class="row">
+            <div class="col-md-5 col-xs-4 col-xxs-12">
+              <h3 class="no-padding text-center-480 useradmin"><a href=""><img class="userImg" src="/images/user.jpg" alt="user"> <%=current_user.first_name%> <%=current_user.last_name%> </a> </h3>
+            </div>
+            <div class="col-md-7 col-xs-8 col-xxs-12">
+              <div class="header-data text-center-xs">
+
+                <!-- Traffic data -->
+                <div class="hdata">
+                  <div class="mcol-left">
+                    <!-- Icon with red background -->
+                    <i class="fa fa-eye ln-shadow"></i> </div>
+                  <div class="mcol-right">
+                    <!-- Number of visitors -->
+                    <p><a href="#">7000</a> <em>visits</em></p>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+
+                <!-- revenue data -->
+                <div class="hdata">
+                  <div class="mcol-left">
+                    <!-- Icon with green background -->
+                    <i class="icon-th-thumb ln-shadow"></i> </div>
+                  <div class="mcol-right">
+                    <!-- Number of visitors -->
+                    <p><a href="#">12</a><em>Ads</em></p>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+
+                <!-- revenue data -->
+                <div class="hdata">
+                  <div class="mcol-left">
+                    <!-- Icon with blue background -->
+                    <i class="fa fa-user ln-shadow"></i> </div>
+                  <div class="mcol-right">
+                    <!-- Number of visitors -->
+                    <p><a href="#">18</a> <em>Favorites </em></p>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="inner-box">
+          <div class="welcome-msg">
+            <h3 class="page-sub-header2 clearfix no-padding"><%=t 'registrations.edit.hello'%> <%=current_user.first_name%> <%=current_user.last_name%> </h3>
+            <span class="page-sub-header-sub small"><%=t 'registrations.edit.lastlogin'%> <%= l current_user.last_sign_in_at ,:format => :long%></span> </div>
+          <div id="accordion" class="panel-group">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title"> <a href="#collapseB1"  data-toggle="collapse"> <%=t 'registrations.edit.mydetails'%> </a> </h4>
+              </div>
+              <div class="panel-collapse collapse in" id="collapseB1">
+                <div class="panel-body">
+
+                  <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, layout: :horizontal, inline_errors: false) do |f| %>
+                      <%= devise_error_messages! %>
+                      <%= f.text_field :first_name , control_col: "col-sm-9", label_col:"col-sm-3" %>
+                      <%= f.text_field :last_name , control_col: "col-sm-9", label_col:"col-sm-3" %>
+                      <%= f.text_field :phone_number , control_col: "col-sm-9", label_col:"col-sm-3", data: { inputmask: "'mask': '(99)9999[9]-9999','removeMaskOnSubmit':'true'" } %>
+                      <%= f.form_group :gender, label: { text: t('activerecord.attributes.user.gender')}, label_col:"col-sm-3" , control_col: "col-sm-9"  do %>
+                          <%= f.radio_button :gender, 'M', label: t('registrations.new.male') %>
+                          <%= f.radio_button :gender, 'F', label: t('registrations.new.female') %>
+                          <%= f.radio_button :gender, 'N', label: t('registrations.new.notinformative') %>
+                      <% end %>
+                      <%= f.text_field :cpf , control_col: "col-sm-9", label_col:"col-sm-3" , data: { inputmask: "'mask': '999.999.999-99','removeMaskOnSubmit':'true'" } %>
+                      <%= f.email_field :email , control_col: "col-sm-9", label_col:"col-sm-3" %>
+                      <%= f.password_field :password, autocomplete: "off", control_col: "col-sm-9", label_col:"col-sm-3" %>
+                      <%= f.password_field :password_confirmation, autocomplete: "off" , control_col: "col-sm-9", label_col:"col-sm-3" %>
+                      <%= f.password_field :current_password, autocomplete: "off" , control_col: "col-sm-9", label_col:"col-sm-3" %>
+                      <div class="form-group">
+                      <div class="col-sm-offset-3 col-sm-9">
+                        <%= f.submit t('registrations.edit.submit') , class: 'btn btn-primary' %>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title"> <a href="#collapseB3"  data-toggle="collapse"> Preferences </a> </h4>
+              </div>
+              <div class="panel-collapse collapse" id="collapseB3">
+                <div class="panel-body">
+                  <div class="form-group">
+                    <div class="col-sm-12">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox">
+                          I want to receive newsletter. </label>
+                      </div>
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox">
+                          I want to receive advice on buying and selling. </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--/.row-box End-->
+
+        </div>
+      </div>
+      <!--/.page-content-->
+    </div>
+    <!--/.row-->
+  </div>
+  <!--/.container-->
+</div>
+<!-- /.main-container -->

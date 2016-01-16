@@ -6,17 +6,17 @@
           <div class="inner-box">
             <div class="user-panel-sidebar">
               <div class="collapse-box">
-                <h5 class="collapse-title no-border"> My Classified <a href="#MyClassified" data-toggle="collapse" class="pull-right"><i class="fa fa-angle-down"></i></a></h5>
+                <h5 class="collapse-title no-border"> <%=t 'registrations.edit.myclassified'%> <a href="#MyClassified" data-toggle="collapse" class="pull-right"><i class="fa fa-angle-down"></i></a></h5>
                 <div class="panel-collapse collapse in" id="MyClassified">
                   <ul class="acc-list">
-                    <li><a class="active" href="account-home.html"><i class="icon-home"></i> Personal Home </a></li>
+                    <li><a class="active" href="account-home.html"><i class="icon-home"></i> <%=t 'registrations.edit.personal_home'%> </a></li>
 
                   </ul>
                 </div>
               </div>
               <!-- /.collapse-box  -->
               <div class="collapse-box">
-                <h5 class="collapse-title"> My Ads <a href="#MyAds" data-toggle="collapse" class="pull-right"><i class="fa fa-angle-down"></i></a></h5>
+                <h5 class="collapse-title"> <%= t 'registrations.edit.my_adds'%> <a href="#MyAds" data-toggle="collapse" class="pull-right"><i class="fa fa-angle-down"></i></a></h5>
                 <div class="panel-collapse collapse in" id="MyAds">
                   <ul class="acc-list">
                     <li><a href="account-myads.html"><i class="icon-docs"></i> My ads <span class="badge">42</span> </a></li>
@@ -31,10 +31,14 @@
               <!-- /.collapse-box  -->
 
               <div class="collapse-box">
-                <h5 class="collapse-title"> Terminate Account <a href="#TerminateAccount" data-toggle="collapse" class="pull-right"><i class="fa fa-angle-down"></i></a></h5>
+                <h5 class="collapse-title"> <%=t 'registrations.edit.terminate_account'%> <a href="#TerminateAccount" data-toggle="collapse" class="pull-right"><i class="fa fa-angle-down"></i></a></h5>
                 <div class="panel-collapse collapse in" id="TerminateAccount">
                   <ul class="acc-list">
-                    <li><a href="account-close.html"><i class="icon-cancel-circled "></i> Close account </a></li>
+                    <li>
+                      <%= link_to registration_path(resource_name), data: { confirm: t('registrations.edit.comfirm_delete_account') }, method: :delete do %>
+                          <i class="icon-cancel-circled "></i> <%=t 'registrations.edit.close_account'%>
+                      <% end%>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -48,6 +52,7 @@
       <!--/.page-sidebar-->
 
       <div class="col-sm-9 page-content">
+        <%= bootstrap_flash %>
         <div class="inner-box">
           <div class="row">
             <div class="col-md-5 col-xs-4 col-xxs-12">
@@ -100,16 +105,17 @@
           <div class="welcome-msg">
             <h3 class="page-sub-header2 clearfix no-padding"><%=t 'registrations.edit.hello'%> <%=current_user.first_name%> <%=current_user.last_name%> </h3>
             <span class="page-sub-header-sub small"><%=t 'registrations.edit.lastlogin'%> <%= l current_user.last_sign_in_at ,:format => :long%></span> </div>
+          <%= my_error_messages! %>
           <div id="accordion" class="panel-group">
             <div class="panel panel-default">
               <div class="panel-heading">
                 <h4 class="panel-title"> <a href="#collapseB1"  data-toggle="collapse"> <%=t 'registrations.edit.mydetails'%> </a> </h4>
               </div>
+
               <div class="panel-collapse collapse in" id="collapseB1">
                 <div class="panel-body">
 
                   <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, layout: :horizontal, inline_errors: false) do |f| %>
-                      <%= devise_error_messages! %>
                       <%= f.text_field :first_name , control_col: "col-sm-9", label_col:"col-sm-3" %>
                       <%= f.text_field :last_name , control_col: "col-sm-9", label_col:"col-sm-3" %>
                       <%= f.text_field :phone_number , control_col: "col-sm-9", label_col:"col-sm-3", data: { inputmask: "'mask': '(99)9999[9]-9999','removeMaskOnSubmit':'true'" } %>
@@ -129,43 +135,6 @@
                       </div>
                     </div>
                   <% end %>
-                </div>
-              </div>
-            </div>
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h4 class="panel-title"> <a href="#collapseB2"  data-toggle="collapse"> Settings </a> </h4>
-              </div>
-              <div class="panel-collapse collapse" id="collapseB2">
-                <div class="panel-body">
-                  <form class="form-horizontal" role="form">
-                    <div class="form-group">
-                      <div class="col-sm-12">
-                        <div class="checkbox">
-                          <label>
-                            <input type="checkbox">
-                            Comments are enabled on my ads </label>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label  class="col-sm-3 control-label">New Password</label>
-                      <div class="col-sm-9">
-                        <input type="password" class="form-control"  placeholder="">
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label  class="col-sm-3 control-label">Confirm Password</label>
-                      <div class="col-sm-9">
-                        <input type="password" class="form-control"  placeholder="">
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="col-sm-offset-3 col-sm-9">
-                        <button type="submit" class="btn btn-default">Update</button>
-                      </div>
-                    </div>
-                  </form>
                 </div>
               </div>
             </div>

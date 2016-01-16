@@ -5,4 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   validates_presence_of :cpf,:phone_number,:first_name,:last_name,:gender
+
+  attr_accessor :term
+
 end

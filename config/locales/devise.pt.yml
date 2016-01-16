@@ -12,7 +12,7 @@ pt:
       invalid: "A informação de %{authentication_keys} ou senha são inválidos."
       locked: "Sua conta foi bloqueada."
       last_attempt: "You have one more attempt before your account is locked."
-      not_found_in_database: "Invalid %{authentication_keys} or password."
+      not_found_in_database: "A informação de %{authentication_keys} ou senha são inválidos."
       timeout: "Your session expired. Please sign in again to continue."
       unauthenticated: "You need to sign in or sign up before continuing."
       unconfirmed: "You have to confirm your email address before continuing."
@@ -33,7 +33,7 @@ pt:
       updated: "Sua senha foi recuperada com sucesso. Você está logado agora."
       updated_not_active: "Sua senha foi alterada com sucesso."
     registrations:
-      destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
+      destroyed: "Tchau! Sua conta foi excluida com sucesso. Nós do Kabrabom desejamos nos encontrar novamente no futuro."
       signed_up: "Bem-vindo ao Kabrabom! Seu cadastro foi realizado com sucesso."
       signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
       signed_up_but_locked: "You have signed up successfully. However, we could not sign you in because your account is locked."
