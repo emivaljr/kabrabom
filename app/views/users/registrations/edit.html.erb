@@ -52,13 +52,13 @@
       <!--/.page-sidebar-->
 
       <div class="col-sm-9 page-content">
-        <%= bootstrap_flash %>
+
         <div class="inner-box">
           <div class="row">
-            <div class="col-md-5 col-xs-4 col-xxs-12">
+            <div class="col-md-6 col-xs-8 col-xxs-12">
               <h3 class="no-padding text-center-480 useradmin"><a href=""><img class="userImg" src="/images/user.jpg" alt="user"> <%=current_user.first_name%> <%=current_user.last_name%> </a> </h3>
             </div>
-            <div class="col-md-7 col-xs-8 col-xxs-12">
+            <div class="col-md-6 col-xs-4 col-xxs-12">
               <div class="header-data text-center-xs">
 
                 <!-- Traffic data -->
@@ -100,7 +100,7 @@
             </div>
           </div>
         </div>
-
+        <%= bootstrap_flash %>
         <div class="inner-box">
           <div class="welcome-msg">
             <h3 class="page-sub-header2 clearfix no-padding"><%=t 'registrations.edit.hello'%> <%=current_user.first_name%> <%=current_user.last_name%> </h3>
@@ -126,9 +126,10 @@
                       <% end %>
                       <%= f.text_field :cpf , control_col: "col-sm-9", label_col:"col-sm-3" , data: { inputmask: "'mask': '999.999.999-99','removeMaskOnSubmit':'true'" } %>
                       <%= f.email_field :email , control_col: "col-sm-9", label_col:"col-sm-3" %>
-                      <%= f.password_field :password, autocomplete: "off", control_col: "col-sm-9", label_col:"col-sm-3" %>
-                      <%= f.password_field :password_confirmation, autocomplete: "off" , control_col: "col-sm-9", label_col:"col-sm-3" %>
-                      <%= f.password_field :current_password, autocomplete: "off" , control_col: "col-sm-9", label_col:"col-sm-3" %>
+                      <%= f.password_field :current_password, autocomplete: "off" , control_col: "col-sm-9", label_col:"col-sm-3" , placeholder: t('registrations.edit.confirm_current_password') %>
+                      <%= f.password_field :password, autocomplete: "off", control_col: "col-sm-9", label_col:"col-sm-3" , placeholder: t('registrations.edit.confirm_password_change') %>
+                      <%= f.password_field :password_confirmation, autocomplete: "off" , control_col: "col-sm-9", label_col:"col-sm-3", placeholder: t('registrations.edit.password_confirmation_change')  %>
+
                       <div class="form-group">
                       <div class="col-sm-offset-3 col-sm-9">
                         <%= f.submit t('registrations.edit.submit') , class: 'btn btn-primary' %>

@@ -1,12 +1,18 @@
 <div class="main-container">
   <div class="container">
     <div class="row">
-      <div class="col-md-8 page-content">
+      <div class="col-md-8 login-box">
         <div class="panel panel-default">
-          <div class="panel-heading">Mensagem</div>
-          <div class="panel-body">
-            <%= bootstrap_flash %>
-           <center> <a href="/" class="btn btn-default">Inicio</a></center>
+          <div class="panel-body text-center">
+            <div class="col-md-12 col-xs-12 welcome-msg" style="padding-top:20px;">
+              <i class="icon-ok-1 ln-shadow-radius shape-1"></i>
+            </div>
+            <div class="col-md-12 col-xs-12">
+              <h3 class="welcome-msg"><%= bootstrap_flash_message %></h3>
+            </div>
+            <p class="welcome-msg">
+              <a href="/" class="btn btn-default">Voltar para o site</a>
+            </p>
           </div>
         </div>
       </div>

@@ -43,8 +43,8 @@ pt:
 
   welcome:
     index:
-      mainTitle: 'ENCONTRE AQUI SEU KABRA BOM!'
-      subTitle: 'Encontre o profissional para a sua necessidade em minutos.'
+      mainTitle: 'PROCURE AQUI SEU KABRA BOM!'
+      subTitle: 'Encontre o profissional que você precisa em minutos.'
       searchCityCep: 'Cidade/Cep...'
       searchLookingFor: 'Estou procurando um...'
       categoryTitle: 'navegue em nossas categorias:'
@@ -77,6 +77,9 @@ pt:
       terminate_account: 'Encerrar conta'
       close_account: 'Fechar minha conta'
       comfirm_delete_account: 'Confirma que deseja excluir sua conta? Essa ação não poderá ser desfeita.'
+      confirm_current_password: 'Digite sua senha atual para confirmar alterações  no perfil'
+      confirm_password_change: 'Digite apenas se deseja mudar de senha'
+      password_confirmation_change: 'Confirme a mudança de senha'
   passwords:
     new:
       button_mail: Envie instruções para reiniciar senha
