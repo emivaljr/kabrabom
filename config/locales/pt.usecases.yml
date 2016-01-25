@@ -98,6 +98,9 @@ pt:
       user:
         one: Usuário
         other: Usuários
+      service_ad:
+        one: Anúncio
+        other: Anúncios
     attributes:
       profession:
         name: Nome
@@ -137,3 +140,10 @@ pt:
       phone:
         ddd: Ddd
         phone: Telefone
+      service_ad:
+        category: Categoria
+        title: Título
+        description: Descrição
+        price: Preço
+        picture: Imagem
+        service: Tipo de Serviço

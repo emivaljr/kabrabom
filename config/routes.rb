@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :service_ads
+  resources :services
+  resources :categories
   get 'message/index'
 
   devise_for :users, controllers: { sessions: "users/sessions",confirmations: "users/confirmations", registrations: "users/registrations", passwords: "users/passwords"}
@@ -14,6 +17,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+
+  get 'servicesByCategory/retrieveByCategory' => "services#retrieveByCategory", :as => 'remote_select' 
 
   # Example of regular route:
   #

@@ -43,6 +43,8 @@
     <link href="/css/owl.carousel.css" rel="stylesheet">
     <link href="/css/owl.theme.css" rel="stylesheet">
 
+    <link href="/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js" type="text/javascript"></script>
@@ -101,7 +103,7 @@
                   <li><a href="/users/sign_in"><%= t('.login')%></a></li>
                   <li><a href="/users/sign_up"><%= t('.signUp')%></a></li>
               <% end -%>
-              <li class="postadd"><a class="btn btn-block   btn-border btn-post btn-danger" href="post-ads.html"><%= t('.freeAds')%></a></li>
+              <li class="postadd"><a class="btn btn-block   btn-border btn-post btn-danger" href="/service_ads/new"><%= t('.freeAds')%></a></li>
             </ul>
           </div>
           <!--/.nav-collapse -->

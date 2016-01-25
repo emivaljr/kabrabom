@@ -32,3 +32,9 @@ State.create([{name:'Acre',sign:'AC'},
               {name:'São Paulo',sign:'SP'},
               {name:'Sergipe',sign:'SE'},
               {name:'Tocantins',sign:'TO'}])
+ServiceUnit.create([{name:'Metro quadrado'},
+                    {name:'Metro linear'},
+                    {name:'Diária'}])
+categories = Category.create([{name:'Automoveis e Cia',description:'Automoveis e Cia',active:true,icon:'car'},
+                 {name:'Residencial',description:'Residencial',active:true,icon:'home'},])
+Service.create({name:'Funilaria',description:'Automoveis e Cia',category:categories.first})
