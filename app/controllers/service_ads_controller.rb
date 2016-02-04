@@ -30,7 +30,7 @@ class ServiceAdsController < ApplicationController
   def create
     @service_ad = ServiceAd.new(service_ad_params)
     if @service_ad.save
-      redirect_to @service_ad, notice: t('helpers.messages.save' , model:t('activerecord.models.service_ad.one'))
+      redirect_to "/message/index", notice: t('helpers.messages.save' , model:t('activerecord.models.service_ad.one'))
     else
       @serviceList = Service.where(:category_id => @service_ad.category).to_a
       5.times do
@@ -67,6 +67,6 @@ class ServiceAdsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def service_ad_params
-      params.require(:service_ad).permit(:title, :description, :active, :price, :service_id, :user_id,:category,:service)
+      params.require(:service_ad).permit(:title, :description, :active, :price, :service_id, :user_id,:category,:service,:service_unit_id, service_images_attributes: [:photo])
     end
 end

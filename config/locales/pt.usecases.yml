@@ -90,6 +90,20 @@ pt:
       button_change: 'Enviar'
       new_password: 'Nova Senha'
       confirm_password: 'Confirmar Senha'
+  service_ads:
+    new:
+      title: Faça aqui seu anúncio grátis
+      howtosell: 'Como se tornar um kabrabom?'
+      howtosell_item1: 'Escreva um titulo claro e uma descrição detalhada do seu trabalho'
+      howtosell_item2: 'Confira se o produto está classificado corretamente de acordo com a categoria e o tipo de serviço.'
+      howtosell_item3: 'Inclua fotos dos seus trabalhos. Isso vai te ajudar mostrar que vc é um Kabrabom!'
+      howtosell_item4: 'Ponha um preço bom. Lembre-se que os melhores preços terão destaque maior na listagem.'
+      howtosell_item5: 'Verifique os dados do seu anuncio antes de publicar.'
+      free_classified_ad: 'Anuncie Grátis!'
+      fillform: 'Preencha os dados ao lado para publicar seu anuncio inteiramente grátis. Utilize as opções disponiveis pra melhor destacar seu anuncio'
+    form:
+      helpTitle: Um bom titulo deve ter no minimo 60 caracteres
+      realphotos: Adicione até 5 fotos. Inclua fotos reais do seu trabalho.
   activerecord:
     models:
       profession:
@@ -145,5 +159,6 @@ pt:
         title: Título
         description: Descrição
         price: Preço
-        picture: Imagem
-        service: Tipo de Serviço
+        picture: Imagens
+        service_id: Tipo de Serviço
+        service_unit: Por (Unidade de medida)

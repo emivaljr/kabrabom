@@ -9,7 +9,6 @@
     </data-source>
     <data-source name="Rails kabrabom: test" uuid="61b98140-34e1-4c47-b581-dc8464938aec" />
     <data-source name="Rails kabrabom: production" uuid="55a95712-4c72-49f0-a241-00d54de357a9">
-      <user-name>emival</user-name>
       <schema-pattern>kabrabom.pg_catalog kabrabom.public</schema-pattern>
       <default-schemas>kabrabom.public</default-schemas>
     </data-source>

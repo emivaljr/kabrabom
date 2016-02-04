@@ -1,41 +1,87 @@
-<%= form_for(@service_ad) do |f| %>
-  <% if @service_ad.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@service_ad.errors.count, "error") %> prohibited this service_ad from being saved:</h2>
+<%= bootstrap_form_for(@service_ad, layout: :horizontal, inline_errors: false, html: {multipart: true}) do |f| %>
+    <fieldset>
+      <%= f.hidden_field :user_id %>
+      <%= f.hidden_field :active %>
+      <script>
+        $(document).ready(function() {
+          $('#service_ad_category').change(function() {
+            $.ajax({
+              url: "<%= remote_select_url %>", // this will be routed
+              type: 'GET',
+              data: {
+                send_id: $("#service_ad_category").val()
+              },
+              async: true,
+              dataType: "json",
+              error: function(XMLHttpRequest, errorTextStatus, error){
+                alert("Failed: "+ errorTextStatus+" ;"+error);
+              },
+              success: function(data){
+                if(data == null){
+                  $("#service_ad_service_id").empty().append(new Option('Selecione', ''));
+                }else if(data.length){
+                  // here we iterate the json result
+                  for(var i in data)
+                  {
+                    var id = data[i].id;
+                    var title = data[i].name;
+                    $("#service_ad_service_id").append(new Option(title, id));
+                  }
+                }else{
+                  var id = data.id;
+                  var title = data.name;
+                  $("#service_ad_service_id").append(new Option(title, id));
+                }
 
-      <ul>
-      <% @service_ad.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+              }
+            });
+          });
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :active %><br>
-    <%= f.check_box :active %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.text_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :service_id %><br>
-    <%= f.text_field :service_id %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+        });
+      </script>
+      <!-- Select Basic -->
+      <%= f.collection_select :category, Category.all, :id, :name, {include_blank: 'Selecione', control_col: "col-md-8", label_col: "col-md-3" } %>
+
+      <%= f.select :service_id, @serviceList.collect {|p| [ p.name, p.id ] }, {include_blank: 'Selecione', control_col: "col-md-8", label_col: "col-md-3" } %>
+
+
+      <!-- Text input-->
+      <%= f.text_field :title, control_col: "col-md-8", label_col: "col-md-3", help: t('.helpTitle') %>
+      <!-- Textarea -->
+      <%= f.text_area :description, control_col: "col-md-8", label_col: "col-md-3" %>
+      <div class="form-group">
+        <label class="col-md-3 control-label" for="textarea"> <%= f.label :price%> </label>
+        <div class="col-md-3">
+          <%= f.text_field_without_bootstrap :price, prepend: "R$", data: { inputmask: "'mask': '[999.999.99]9,99', 'numericInput': true, 'greedy': false , 'rightAlign':true"}, control_col: "col-md-4", label_col: "col-md-3" %>
+        </div>
+        <label class="col-md-2 control-label" for="textarea"> <%= f.label :service_unit_id%> </label>
+        <div class="col-md-4">
+          <%= f.collection_select_without_bootstrap :service_unit_id, ServiceUnit.all, :id, :name, {include_blank: 'Selecione', control_col: "col-md-4", label_col: "col-md-3" } %>
+        </div>
+        </div>
+
+
+
+      <%= f.collection_select :service_unit_id, ServiceUnit.all, :id, :name, {include_blank: 'Selecione', control_col: "col-md-4", label_col: "col-md-3" } %>
+
+      <!-- photo -->
+      <div class="form-group">
+        <label class="col-md-3 control-label" for="textarea"> <%= f.label :picture%> </label>
+        <div class="col-md-8">
+          <%= f.fields_for :service_images do |image| %>
+              <div class="mb10">
+                <%= image.file_field_without_bootstrap :photo , class: 'file fileuploadservice', data:{'preview-file-type':'text'} %>
+              </div>
+          <% end %>
+          <p class="help-block"><%= t '.realphotos'%></p>
+        </div>
+      </div>
+      <!-- Button  -->
+      <div class="form-group">
+        <label class="col-md-3 control-label"></label>
+        <div class="col-md-8">
+          <%= f.submit 'Submit', class:"btn btn-success btn-lg" %>
+        </div>
+      </div>
+    </fieldset>
 <% end %>
