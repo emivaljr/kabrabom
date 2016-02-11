@@ -1,10 +1,19 @@
 class ServiceAdsController < ApplicationController
   before_action :set_service_ad, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user! , only: [:new,:edit,:update,:destroy]
 
   # GET /service_ads
   def index
-    @service_ads = ServiceAd.all
+    if params.key?(:service)
+      @service_ads = ServiceAd.where(service_id: params[:service]).find_each
+      @service = params[:service]
+      @category = params[:category]
+    elsif params.key?(:category)
+      @service_ads = ServiceAd.joins(:service).where(services: {category_id: params[:category]})
+      @category = params[:category]
+    else
+      @service_ads = ServiceAd.all
+    end
   end
 
   # GET /service_ads/1
@@ -16,6 +25,8 @@ class ServiceAdsController < ApplicationController
     user_param = ActionController::Parameters.new(user_id: current_user.attributes['id'],active:true)
     user_param.permit!
     @service_ad = ServiceAd.new(user_param)
+    @city_coverages = @service_ad.city_coverages.build
+    @district_coverages = @service_ad.district_coverages.build
     @serviceList = Array.new
     5.times do
       @service_ad.service_images.build
@@ -67,6 +78,6 @@ class ServiceAdsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def service_ad_params
-      params.require(:service_ad).permit(:title, :description, :active, :price, :service_id, :user_id,:category,:service,:service_unit_id, service_images_attributes: [:photo])
+      params.require(:service_ad).permit!
     end
 end

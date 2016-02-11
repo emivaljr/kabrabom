@@ -122,14 +122,45 @@
                       <%= f.form_group :gender, label: { text: t('activerecord.attributes.user.gender')}, label_col:"col-sm-3" , control_col: "col-sm-9"  do %>
                           <%= f.radio_button :gender, 'M', label: t('registrations.new.male') %>
                           <%= f.radio_button :gender, 'F', label: t('registrations.new.female') %>
-                          <%= f.radio_button :gender, 'N', label: t('registrations.new.notinformative') %>
                       <% end %>
                       <%= f.text_field :cpf , control_col: "col-sm-9", label_col:"col-sm-3" , data: { inputmask: "'mask': '999.999.999-99','removeMaskOnSubmit':'true'" } %>
                       <%= f.email_field :email , control_col: "col-sm-9", label_col:"col-sm-3" %>
                       <%= f.password_field :current_password, autocomplete: "off" , control_col: "col-sm-9", label_col:"col-sm-3" , placeholder: t('registrations.edit.confirm_current_password') %>
                       <%= f.password_field :password, autocomplete: "off", control_col: "col-sm-9", label_col:"col-sm-3" , placeholder: t('registrations.edit.confirm_password_change') %>
                       <%= f.password_field :password_confirmation, autocomplete: "off" , control_col: "col-sm-9", label_col:"col-sm-3", placeholder: t('registrations.edit.password_confirmation_change')  %>
+                      <div class="content-subheading">
+                        <i class="icon-address fa"></i>
+                        <strong><%= t 'registrations.new.locale' %></strong>
+                      </div>
+                      <%= f.fields_for :addresses do |a| %>
+                          <%= a.text_field :cep, data: {inputmask: "'mask': '99999-999'"}, label_col: "col-md-4", control_col: "col-md-4", append: link_to("Buscar", "#", class: "btn btn-default", id: "buscarCep", onclick: "return false;") %>
+                          <script>
+                            $("#buscarCep").click(function () {
+                              $.ajax({
+                                url: "/cep/search/" + $('#user_addresses_attributes_0_cep').val() + ".json",
+                                type: "GET",
+                                dataType: 'json',
+                                contentType: 'application/json',
+                                data: {},
+                                success: function (data) {
+                                  $('#user_addresses_attributes_0_main').val(data.main);
+                                  $('#user_addresses_attributes_0_city').val(data.city);
+                                  $('#user_addresses_attributes_0_district').val(data.district);
+                                  $("#user_addresses_attributes_0_state option[value=" + data.state + "]").prop("selected", "selected");
+                                }
+                              });
+                            });
+                          </script>
+                          <%= a.text_field :main, label_col: "col-md-4", control_col: "col-md-6" %>
 
+
+                          <%= a.text_field :num, label_col: "col-md-4", control_col: "col-md-2" %>
+                          <%= a.text_field :complement, label_col: "col-md-4", control_col: "col-md-6" %>
+
+                          <%= a.text_field :district, label_col: "col-md-4", control_col: "col-md-6" %>
+                          <%= a.text_field :city, label_col: "col-md-4", control_col: "col-md-6" %>
+                          <%= a.collection_select :state, State.all, :sign, :name, {include_blank: 'Selecione', control_col: "col-md-6", label_col: "col-md-4"} %>
+                      <% end %>
                       <div class="form-group">
                       <div class="col-sm-offset-3 col-sm-9">
                         <%= f.submit t('registrations.edit.submit') , class: 'btn btn-primary' %>

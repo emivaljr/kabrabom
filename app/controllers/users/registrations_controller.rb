@@ -4,9 +4,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   helper ApplicationHelper
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    build_resource({})
+    @validatable = devise_mapping.validatable?
+    if @validatable
+      @minimum_password_length = resource_class.password_length.min
+    end
+    self.resource.addresses.build
+    respond_with self.resource
+  end
 
   # POST /resource
    def create

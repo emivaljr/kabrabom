@@ -49,18 +49,7 @@
       <%= f.text_field :title, control_col: "col-md-8", label_col: "col-md-3", help: t('.helpTitle') %>
       <!-- Textarea -->
       <%= f.text_area :description, control_col: "col-md-8", label_col: "col-md-3" %>
-      <div class="form-group">
-        <label class="col-md-3 control-label" for="textarea"> <%= f.label :price%> </label>
-        <div class="col-md-3">
-          <%= f.text_field_without_bootstrap :price, prepend: "R$", data: { inputmask: "'mask': '[999.999.99]9,99', 'numericInput': true, 'greedy': false , 'rightAlign':true"}, control_col: "col-md-4", label_col: "col-md-3" %>
-        </div>
-        <label class="col-md-2 control-label" for="textarea"> <%= f.label :service_unit_id%> </label>
-        <div class="col-md-4">
-          <%= f.collection_select_without_bootstrap :service_unit_id, ServiceUnit.all, :id, :name, {include_blank: 'Selecione', control_col: "col-md-4", label_col: "col-md-3" } %>
-        </div>
-        </div>
-
-
+      <%= f.text_field :price, prepend: "R$", data: { inputmask: "'mask': '[999.999.99]9,99', 'numericInput': true, 'greedy': false , 'rightAlign':true"}, control_col: "col-md-4", label_col: "col-md-3" %>
 
       <%= f.collection_select :service_unit_id, ServiceUnit.all, :id, :name, {include_blank: 'Selecione', control_col: "col-md-4", label_col: "col-md-3" } %>
 
@@ -76,6 +65,17 @@
           <p class="help-block"><%= t '.realphotos'%></p>
         </div>
       </div>
+      <div class="content-subheading">
+        <i class="icon-location fa"></i>
+        <strong><%= t 'service_ads.new.comprehensiveness' %></strong>
+      </div>
+      <%= f.collection_select :state_id, State.where({active: true}), :id, :name, {control_col: "col-md-6", label_col: "col-md-4"} %>
+
+      <%= f.fields_for :city_coverages  do |cc| %>
+          <%= cc.collection_select(:city_id, City.all, :id, :name, {control_col: "col-md-6", label_col: "col-md-4",:include_hidden => false}) %>
+      <% end %>
+
+        <%=f.collection_check_boxes(:district_ids,District.all, :id, :name)%>
       <!-- Button  -->
       <div class="form-group">
         <label class="col-md-3 control-label"></label>
@@ -84,4 +84,4 @@
         </div>
       </div>
     </fieldset>
-<% end %>
+  <% end %>

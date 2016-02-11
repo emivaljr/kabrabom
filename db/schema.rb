@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160117022119) do
+ActiveRecord::Schema.define(version: 20160210115820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,46 @@ ActiveRecord::Schema.define(version: 20160117022119) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "cities", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "active"
+    t.integer  "state_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "cities", ["state_id"], name: "index_cities_on_state_id", using: :btree
+
+  create_table "city_coverages", force: :cascade do |t|
+    t.integer  "service_ad_id", null: false
+    t.integer  "city_id",       null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "city_coverages", ["city_id"], name: "index_city_coverages_on_city_id", using: :btree
+  add_index "city_coverages", ["service_ad_id"], name: "index_city_coverages_on_service_ad_id", using: :btree
+
+  create_table "district_coverages", force: :cascade do |t|
+    t.integer  "service_ad_id"
+    t.integer  "district_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "district_coverages", ["district_id"], name: "index_district_coverages_on_district_id", using: :btree
+  add_index "district_coverages", ["service_ad_id"], name: "index_district_coverages_on_service_ad_id", using: :btree
+
+  create_table "districts", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "active"
+    t.integer  "city_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "districts", ["city_id"], name: "index_districts_on_city_id", using: :btree
+
   create_table "phones", force: :cascade do |t|
     t.string   "phone"
     t.integer  "user_id"
@@ -65,10 +105,12 @@ ActiveRecord::Schema.define(version: 20160117022119) do
     t.integer  "service_unit_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "state_id"
   end
 
   add_index "service_ads", ["service_id"], name: "index_service_ads_on_service_id", using: :btree
   add_index "service_ads", ["service_unit_id"], name: "index_service_ads_on_service_unit_id", using: :btree
+  add_index "service_ads", ["state_id"], name: "index_service_ads_on_state_id", using: :btree
 
   create_table "service_images", force: :cascade do |t|
     t.string   "subtitle"
@@ -105,6 +147,7 @@ ActiveRecord::Schema.define(version: 20160117022119) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "active"
   end
 
   create_table "users", force: :cascade do |t|
@@ -131,8 +174,15 @@ ActiveRecord::Schema.define(version: 20160117022119) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "cities", "states"
+  add_foreign_key "city_coverages", "cities"
+  add_foreign_key "city_coverages", "service_ads"
+  add_foreign_key "district_coverages", "districts"
+  add_foreign_key "district_coverages", "service_ads"
+  add_foreign_key "districts", "cities"
   add_foreign_key "service_ads", "service_units"
   add_foreign_key "service_ads", "services"
+  add_foreign_key "service_ads", "states"
   add_foreign_key "service_images", "service_ads"
   add_foreign_key "services", "categories"
 end

@@ -55,6 +55,7 @@ pt:
       mostSearches: 'Mais Buscados'
   registrations:
     new:
+      locale: Localização
       male: Masculino
       female: Feminino
       notinformative: Não informar
@@ -91,6 +92,9 @@ pt:
       new_password: 'Nova Senha'
       confirm_password: 'Confirmar Senha'
   service_ads:
+    index:
+      category: 'Categorias'
+      location: Localização
     new:
       title: Faça aqui seu anúncio grátis
       howtosell: 'Como se tornar um kabrabom?'
@@ -101,6 +105,7 @@ pt:
       howtosell_item5: 'Verifique os dados do seu anuncio antes de publicar.'
       free_classified_ad: 'Anuncie Grátis!'
       fillform: 'Preencha os dados ao lado para publicar seu anuncio inteiramente grátis. Utilize as opções disponiveis pra melhor destacar seu anuncio'
+      comprehensiveness: 'Abrangência'
     form:
       helpTitle: Um bom titulo deve ter no minimo 60 caracteres
       realphotos: Adicione até 5 fotos. Inclua fotos reais do seu trabalho.
@@ -161,4 +166,4 @@ pt:
         price: Preço
         picture: Imagens
         service_id: Tipo de Serviço
-        service_unit: Por (Unidade de medida)
+        service_unit_id: Por (Unidade)
