@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160210115820) do
+ActiveRecord::Schema.define(version: 20160213195444) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -106,8 +106,10 @@ ActiveRecord::Schema.define(version: 20160210115820) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "state_id"
+    t.integer  "category_id"
   end
 
+  add_index "service_ads", ["category_id"], name: "index_service_ads_on_category_id", using: :btree
   add_index "service_ads", ["service_id"], name: "index_service_ads_on_service_id", using: :btree
   add_index "service_ads", ["service_unit_id"], name: "index_service_ads_on_service_unit_id", using: :btree
   add_index "service_ads", ["state_id"], name: "index_service_ads_on_state_id", using: :btree
@@ -180,6 +182,7 @@ ActiveRecord::Schema.define(version: 20160210115820) do
   add_foreign_key "district_coverages", "districts"
   add_foreign_key "district_coverages", "service_ads"
   add_foreign_key "districts", "cities"
+  add_foreign_key "service_ads", "categories"
   add_foreign_key "service_ads", "service_units"
   add_foreign_key "service_ads", "services"
   add_foreign_key "service_ads", "states"

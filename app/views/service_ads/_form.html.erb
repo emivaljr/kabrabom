@@ -4,12 +4,12 @@
       <%= f.hidden_field :active %>
       <script>
         $(document).ready(function() {
-          $('#service_ad_category').change(function() {
+          $('#service_ad_category_id').change(function() {
             $.ajax({
               url: "<%= remote_select_url %>", // this will be routed
               type: 'GET',
               data: {
-                send_id: $("#service_ad_category").val()
+                send_id: $("#service_ad_category_id").val()
               },
               async: true,
               dataType: "json",
@@ -40,7 +40,7 @@
         });
       </script>
       <!-- Select Basic -->
-      <%= f.collection_select :category, Category.all, :id, :name, {include_blank: 'Selecione', control_col: "col-md-8", label_col: "col-md-3" } %>
+      <%= f.collection_select :category_id, Category.all, :id, :name, {include_blank: 'Selecione', control_col: "col-md-8", label_col: "col-md-3" } %>
 
       <%= f.select :service_id, @serviceList.collect {|p| [ p.name, p.id ] }, {include_blank: 'Selecione', control_col: "col-md-8", label_col: "col-md-3" } %>
 
@@ -48,8 +48,8 @@
       <!-- Text input-->
       <%= f.text_field :title, control_col: "col-md-8", label_col: "col-md-3", help: t('.helpTitle') %>
       <!-- Textarea -->
-      <%= f.text_area :description, control_col: "col-md-8", label_col: "col-md-3" %>
-      <%= f.text_field :price, prepend: "R$", data: { inputmask: "'mask': '[999.999.99]9,99', 'numericInput': true, 'greedy': false , 'rightAlign':true"}, control_col: "col-md-4", label_col: "col-md-3" %>
+      <%= f.text_area :description, control_col: "col-md-8", label_col: "col-md-3" ,rows:7, help: t('.helpDescription') %>
+      <%= f.text_field :price, prepend: "R$", data: { inputmask: "'alias':'currency', 'radixPoint': ',', 'groupSeparator': '.', 'prefix':'', 'max':100000, 'removeMaskOnSubmit':true "}, control_col: "col-md-4", label_col: "col-md-3" %>
 
       <%= f.collection_select :service_unit_id, ServiceUnit.all, :id, :name, {include_blank: 'Selecione', control_col: "col-md-4", label_col: "col-md-3" } %>
 
@@ -70,12 +70,10 @@
         <strong><%= t 'service_ads.new.comprehensiveness' %></strong>
       </div>
       <%= f.collection_select :state_id, State.where({active: true}), :id, :name, {control_col: "col-md-6", label_col: "col-md-4"} %>
+      <%= f.collection_select :city_ids, City.where({active: true}), :id, :name, {control_col: "col-md-6", label_col: "col-md-4"} %>
 
-      <%= f.fields_for :city_coverages  do |cc| %>
-          <%= cc.collection_select(:city_id, City.all, :id, :name, {control_col: "col-md-6", label_col: "col-md-4",:include_hidden => false}) %>
-      <% end %>
 
-        <%=f.collection_check_boxes(:district_ids,District.all, :id, :name)%>
+        <%=f.collection_check_boxes(:district_ids,District.all, :id, :name, {control_col: "col-md-6", label_col: "col-md-4"})%>
       <!-- Button  -->
       <div class="form-group">
         <label class="col-md-3 control-label"></label>

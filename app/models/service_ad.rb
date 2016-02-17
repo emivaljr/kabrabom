@@ -2,6 +2,7 @@ class ServiceAd < ActiveRecord::Base
   belongs_to :service
   has_one :service_unit
   has_one :state
+  has_one :category
 
   has_many :service_images, :dependent => :destroy
   has_many :city_coverages, :dependent => :destroy, inverse_of: :service_ad
@@ -13,9 +14,8 @@ class ServiceAd < ActiveRecord::Base
   accepts_nested_attributes_for :city_coverages
   accepts_nested_attributes_for :district_coverages
 
-  attr_accessor :category
 
 
-  validates_presence_of :category,:service,:title,:description,:price,:user_id,:service_id,:service_unit_id,:state_id
+  validates_presence_of :service,:title,:description,:price,:user_id,:service_id,:service_unit_id,:state_id,:category_id
 
 end

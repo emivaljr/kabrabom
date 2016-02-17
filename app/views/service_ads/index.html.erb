@@ -135,20 +135,17 @@
                           <div class="locations-list  list-filter">
                             <h5 class="list-title"><strong><a href="#"><%= t('.location') %></a></strong></h5>
                             <ul class="browse-list list-unstyled long-list">
-                              <li><a href="sub-category-sub-location.html">New York</a></li>
-                              <li><a href="sub-category-sub-location.html">South West</a></li>
-                              <li><a href="sub-category-sub-location.html">South East</a></li>
-                              <li><a href="sub-category-sub-location.html">East England</a></li>
-                              <li><a href="sub-category-sub-location.html">East Midlands</a></li>
-                              <li><a href="sub-category-sub-location.html">West Midlands</a></li>
-                              <li><a href="sub-category-sub-location.html">North East</a></li>
-                              <li><a href="sub-category-sub-location.html">North West</a></li>
-                              <li><a href="sub-category-sub-location.html">Scotland</a></li>
-                              <li><a href="sub-category-sub-location.html">Wales</a></li>
-                              <li><a href="sub-category-sub-location.html">Northern Ireland</a></li>
-                              <li><a href="sub-category-sub-location.html">England</a></li>
-                              <li><a href="sub-category-sub-location.html">UK</a></li>
-                              <li><a href="sub-category-sub-location.html"> Other Locations </a></li>
+                              <% District.find_each do |district| %>
+                                  <li>
+                                  <%= link_to service_ads_path(:category =>  @category,:service => @service,:district => district.id), :post => true do %>
+                                        <% if district.id.to_s == @district %>
+                                            <strong><%= district.name %></strong>
+                                        <% else %>
+                                            <%= district.name %>
+                                        <% end %>
+                                  <% end %>
+                                  </li>
+                              <% end %>
                             </ul>
                           </div>
                           <!--/.locations-list-->
