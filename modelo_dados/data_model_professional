@@ -31,15 +31,9 @@
 		<type label="ENUM" length="1" sql="ENUM" quote=""/>
 		<type label="SET" length="1" sql="SET" quote=""/>
 	</group>
-</datatypes><table x="549" y="320" name="service_professional">
+</datatypes><table x="497" y="409" name="professional_services">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="title" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="description" null="1" autoincrement="0">
-<datatype>MEDIUMTEXT</datatype>
 <default>NULL</default></row>
 <row name="active" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
@@ -49,7 +43,7 @@
 <default>NULL</default></row>
 <row name="professional_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="professional" row="id" />
+<default>NULL</default><relation table="professionals" row="id" />
 </row>
 <row name="service_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
@@ -58,18 +52,6 @@
 <row name="service_unit_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="service_units" row="id" />
-</row>
-<row name="state_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="states" row="id" />
-</row>
-<row name="category_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="categories" row="id" />
-</row>
-<row name="level_star_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="levels_stars" row="id" />
 </row>
 <row name="created_at" null="0" autoincrement="0">
 <datatype>DATETIME</datatype>
@@ -84,7 +66,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="342" y="748" name="categories">
+<table x="303" y="650" name="categories">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -110,7 +92,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1100" y="386" name="cities">
+<table x="1509" y="537" name="cities">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -134,7 +116,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="339" y="528" name="services">
+<table x="308" y="408" name="services">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -162,13 +144,13 @@
 <part>id</part>
 </key>
 </table>
-<table x="847" y="294" name="service_city_coverages">
+<table x="1085" y="448" name="professional_profession_city_coverages">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="service_professional_id" null="1" autoincrement="0">
+<row name="professional_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="service_professional" row="id" />
+<default>NULL</default><relation table="professional_professions" row="id" />
 </row>
 <row name="city_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
@@ -184,7 +166,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="914" y="456" name="states">
+<table x="1665" y="604" name="states">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -207,13 +189,13 @@
 <part>id</part>
 </key>
 </table>
-<table x="846" y="134" name="service_district_coverages">
+<table x="1087" y="297" name="professional_profession_district_coverages">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="service_professional_id" null="1" autoincrement="0">
+<row name="professional_profession_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="service_professional" row="id" />
+<default>NULL</default><relation table="professional_professions" row="id" />
 </row>
 <row name="district_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
@@ -229,7 +211,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1298" y="306" name="districts">
+<table x="1498" y="342" name="districts">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -253,7 +235,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="549" y="700" name="service_units">
+<table x="490" y="675" name="service_units">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -270,16 +252,16 @@
 <part>id</part>
 </key>
 </table>
-<table x="313" y="238" name="service_images">
+<table x="1086" y="60" name="professional_profession_images">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="subtitle" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
-<row name="service_professional_id" null="1" autoincrement="0">
+<row name="professional_profession_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="service_professional" row="id" />
+<default>NULL</default><relation table="professional_professions" row="id" />
 </row>
 <row name="photo_file_name" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
@@ -303,7 +285,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1499" y="701" name="addresses">
+<table x="1096" y="774" name="addresses">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -319,11 +301,12 @@
 <row name="cep" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="state" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="user_id" null="1" autoincrement="0">
+<row name="city_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
+<default>NULL</default><relation table="cities" row="id" />
+</row>
+<row name="district" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
 <default>NULL</default></row>
 <row name="active" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
@@ -334,23 +317,17 @@
 <row name="updated_at" null="0" autoincrement="0">
 <datatype>DATETIME</datatype>
 <default>'NULL'</default></row>
-<row name="district" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="1502" y="500" name="phones">
+<table x="744" y="747" name="phones">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="phone" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
-<row name="user_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
 <row name="active" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -364,7 +341,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1501" y="301" name="professions">
+<table x="1092" y="596" name="professions">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -387,7 +364,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="99" y="100" name="users">
+<table x="73" y="355" name="users">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -437,20 +414,24 @@
 <part>id</part>
 </key>
 </table>
-<table x="988" y="644" name="professional">
+<table x="743" y="534" name="professionals">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="nothing_on_record" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="level_star_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="levels_stars" row="id" />
-</row>
 <row name="active" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
+<row name="phone_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="phones" row="id" />
+</row>
+<row name="address_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="addresses" row="id" />
+</row>
 <row name="created_at" null="0" autoincrement="0">
 <datatype>DATETIME</datatype>
 <default>'NULL'</default></row>
@@ -461,13 +442,13 @@
 <part>id</part>
 </key>
 </table>
-<table x="527" y="102" name="service_professional_feedback">
+<table x="342" y="192" name="service_professional_feedback">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="service_professional_id" null="1" autoincrement="0">
+<row name="professional_service_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="service_professional" row="id" />
+<default>NULL</default><relation table="professional_services" row="id" />
 </row>
 <row name="quantity_stars" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
@@ -476,6 +457,9 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="users" row="id" />
 </row>
+<row name="feedback" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
 <row name="created_at" null="0" autoincrement="0">
 <datatype>DATETIME</datatype>
 <default>'NULL'</default></row>
@@ -486,13 +470,18 @@
 <part>id</part>
 </key>
 </table>
-<table x="799" y="692" name="levels_stars">
+<table x="742" y="361" name="professional_professions">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="name" null="1" autoincrement="0">
+<row name="professional_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default></row>
+<default>NULL</default><relation table="professionals" row="id" />
+</row>
+<row name="profession_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="professions" row="id" />
+</row>
 <row name="created_at" null="0" autoincrement="0">
 <datatype>DATETIME</datatype>
 <default>'NULL'</default></row>
@@ -502,6 +491,6 @@
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
-<comment>Não Avaliado, Muito Ruim, Ruim, Bom, Muito Bom, Magnífico</comment>
 </table>
 </sql>
+
