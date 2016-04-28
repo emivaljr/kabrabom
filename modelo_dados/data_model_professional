@@ -31,7 +31,7 @@
 		<type label="ENUM" length="1" sql="ENUM" quote=""/>
 		<type label="SET" length="1" sql="SET" quote=""/>
 	</group>
-</datatypes><table x="497" y="409" name="professional_services">
+</datatypes><table x="472" y="197" name="professional_services">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -41,6 +41,10 @@
 <row name="price" null="1" autoincrement="0">
 <datatype>DECIMAL</datatype>
 <default>NULL</default></row>
+<row name="service_unit_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="service_units" row="id" />
+</row>
 <row name="professional_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="professionals" row="id" />
@@ -48,10 +52,6 @@
 <row name="service_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="services" row="id" />
-</row>
-<row name="service_unit_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="service_units" row="id" />
 </row>
 <row name="created_at" null="0" autoincrement="0">
 <datatype>DATETIME</datatype>
@@ -66,7 +66,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="303" y="650" name="categories">
+<table x="117" y="51" name="categories">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -116,7 +116,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="308" y="408" name="services">
+<table x="293" y="49" name="services">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -235,7 +235,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="490" y="675" name="service_units">
+<table x="740" y="144" name="service_units">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -364,7 +364,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="73" y="355" name="users">
+<table x="473" y="470" name="users">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -398,9 +398,6 @@
 <row name="last_name" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
-<row name="phone_number" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
 <row name="gender" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
@@ -414,10 +411,14 @@
 <part>id</part>
 </key>
 </table>
-<table x="743" y="534" name="professionals">
+<table x="739" y="501" name="professionals">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
+<row name="user_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="users" row="id" />
+</row>
 <row name="nothing_on_record" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -442,7 +443,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="342" y="192" name="service_professional_feedback">
+<table x="140" y="311" name="service_professional_feedback">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -470,7 +471,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="742" y="361" name="professional_professions">
+<table x="740" y="285" name="professional_professions">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
