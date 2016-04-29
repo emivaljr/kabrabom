@@ -7,7 +7,7 @@
     <title><%= content_for?(:title) ? yield(:title) : "Kabrabom" %></title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= stylesheet_link_tag "default", :media => "all" %>
 
     <!-- For third-generation iPad with high-resolution Retina display: -->
     <!-- Size should be 144 x 144 pixels -->
@@ -29,7 +29,7 @@
     <!-- Size should be 32 x 32 pixels -->
     <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
 
-    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "default" %>
     <script src="/plugins/jquery.fs.selecter/jquery.fs.selecter.js"></script>
     <script src="/plugins/jquery.fs.scroller/jquery.fs.scroller.js"></script>
 

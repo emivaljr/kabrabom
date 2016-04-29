@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Professionals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Integer</th>
+      <th>Nothing on record</th>
+      <th>Integer</th>
+      <th>Active</th>
+      <th>Integer</th>
+      <th>Phone</th>
+      <th>Integer</th>
+      <th>Address</th>
+      <th>Integer</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @professionals.each do |professional| %>
+      <tr>
+        <td><%= professional.user_id %></td>
+        <td><%= professional.integer %></td>
+        <td><%= professional.nothing_on_record %></td>
+        <td><%= professional.integer %></td>
+        <td><%= professional.active %></td>
+        <td><%= professional.integer %></td>
+        <td><%= professional.phone_id %></td>
+        <td><%= professional.integer %></td>
+        <td><%= professional.address_id %></td>
+        <td><%= professional.integer %></td>
+        <td><%= link_to 'Show', professional %></td>
+        <td><%= link_to 'Edit', edit_professional_path(professional) %></td>
+        <td><%= link_to 'Destroy', professional, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Professional', new_professional_path %>

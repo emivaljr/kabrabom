@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Service Professional Feedbacks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Professional service</th>
+      <th>Quantity stars</th>
+      <th>User</th>
+      <th>Feedback</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @service_professional_feedbacks.each do |service_professional_feedback| %>
+      <tr>
+        <td><%= service_professional_feedback.professional_service_id %></td>
+        <td><%= service_professional_feedback.quantity_stars %></td>
+        <td><%= service_professional_feedback.user_id %></td>
+        <td><%= service_professional_feedback.feedback %></td>
+        <td><%= link_to 'Show', service_professional_feedback %></td>
+        <td><%= link_to 'Edit', edit_service_professional_feedback_path(service_professional_feedback) %></td>
+        <td><%= link_to 'Destroy', service_professional_feedback, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Service professional feedback', new_service_professional_feedback_path %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Professional service:</strong>
+  <%= @service_professional_feedback.professional_service_id %>
+</p>
+
+<p>
+  <strong>Quantity stars:</strong>
+  <%= @service_professional_feedback.quantity_stars %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @service_professional_feedback.user_id %>
+</p>
+
+<p>
+  <strong>Feedback:</strong>
+  <%= @service_professional_feedback.feedback %>
+</p>
+
+<%= link_to 'Edit', edit_service_professional_feedback_path(@service_professional_feedback) %> |
+<%= link_to 'Back', service_professional_feedbacks_path %>
