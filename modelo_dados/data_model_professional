@@ -144,13 +144,13 @@
 <part>id</part>
 </key>
 </table>
-<table x="1085" y="448" name="professional_profession_city_coverages">
+<table x="1101" y="637" name="professional_city_coverages">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="professional_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="professional_professions" row="id" />
+<default>NULL</default><relation table="professionals" row="id" />
 </row>
 <row name="city_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
@@ -189,13 +189,13 @@
 <part>id</part>
 </key>
 </table>
-<table x="1087" y="297" name="professional_profession_district_coverages">
+<table x="1101" y="486" name="professional_district_coverages">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="professional_profession_id" null="1" autoincrement="0">
+<row name="professional_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="professional_professions" row="id" />
+<default>NULL</default><relation table="professionals" row="id" />
 </row>
 <row name="district_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
@@ -285,7 +285,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1096" y="774" name="addresses">
+<table x="1100" y="790" name="addresses">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -341,7 +341,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1092" y="596" name="professions">
+<table x="1089" y="306" name="professions">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -407,6 +407,10 @@
 <row name="cpf" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
+<row name="phone_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="phones" row="id" />
+</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
