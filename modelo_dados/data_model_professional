@@ -398,12 +398,18 @@
 <row name="last_sign_in_ip" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> a27a889c9404920b760ee70108dc4c80a0010931
 <row name="first_name" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
 <row name="last_name" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
+=======
+>>>>>>> 12eb99e008f9dcf75254a4aaced94ac9d1f66df9
 <row name="gender" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
@@ -417,12 +423,21 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="phones" row="id" />
 </row>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> a27a889c9404920b760ee70108dc4c80a0010931
 <row name="created_at" null="0" autoincrement="0">
 <datatype>DATETIME</datatype>
 <default>'NULL'</default></row>
 <row name="updated_at" null="0" autoincrement="0">
 <datatype>DATETIME</datatype>
 <default>'NULL'</default></row>
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 12eb99e008f9dcf75254a4aaced94ac9d1f66df9
+>>>>>>> a27a889c9404920b760ee70108dc4c80a0010931
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>

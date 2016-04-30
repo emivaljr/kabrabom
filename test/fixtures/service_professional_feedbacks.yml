@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  professional_service_id: 1
+  quantity_stars: 1
+  user_id: 1
+  feedback: MyString
+
+two:
+  professional_service_id: 1
+  quantity_stars: 1
+  user_id: 1
+  feedback: MyString

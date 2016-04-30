@@ -1,0 +1,25 @@
+<%= form_for(@professional_profession) do |f| %>
+  <% if @professional_profession.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@professional_profession.errors.count, "error") %> prohibited this professional_profession from being saved:</h2>
+
+      <ul>
+      <% @professional_profession.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :professional_id %><br>
+    <%= f.number_field :professional_id %>
+  </div>
+  <div class="field">
+    <%= f.label :profession_id %><br>
+    <%= f.number_field :profession_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
